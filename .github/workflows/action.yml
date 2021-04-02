@@ -78,6 +78,20 @@ jobs:
         with:
           path: node_modules
           key: dependencies-${{ hashFiles('**/package-lock.json') }}
+      - uses: 8398a7/action-slack@v3
+        with:
+          status: custom
+          fields: workflow,job,commit,repo,ref,author,took
+          custom_payload: |
+            {
+              attachments: [{
+                color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
+                text: `${process.env.AS_WORKFLOW}\n${process.env.AS_JOB} (${process.env.AS_COMMIT}) of ${process.env.AS_REPO}@${process.env.AS_REF} by ${process.env.AS_AUTHOR} ${{ job.status }} in ${process.env.AS_TOOK}`,
+              }]
+            }
+        env:
+          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
+        if: always() 
       - name: Run Test Coverage
         run: npm run coverage
       - name: Run Mutation Testing
