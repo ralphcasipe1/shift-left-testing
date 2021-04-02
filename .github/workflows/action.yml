@@ -64,5 +64,7 @@ jobs:
         with:
           path: node_modules
           key: dependencies-${{ hashFiles('**/package-lock.json') }}
-      - name: Run tests
+      - name: Run Test Coverage
         run: npm run coverage
+      - name: Run Mutation Testing
+        run: npx stryker run
