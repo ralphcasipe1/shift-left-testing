@@ -605,7 +605,7 @@ const { expect } = require('chai');
 const add = require('./add');
 
 describe('add', () => {
-  it('should have the correct sum', function () {
+  it('should have the correct sum', () => {
     fc.assert(
       fc.property(
         fc.integer(), fc.integer(), 
@@ -626,7 +626,7 @@ const { expect } = require('chai');
 const subtract = require('./subtract');
 
 describe('subtract', () => {
-  it('should have the correct difference', function () {
+  it('should have the correct difference', () => {
     fc.assert(
       fc.property(
         fc.integer(), fc.integer(), 
