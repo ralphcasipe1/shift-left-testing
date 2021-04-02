@@ -17,11 +17,11 @@ jobs:
           node-version: '14'
       - run: npm install
 
-  test:
-    needs: install_dependencies
-    runs-on: ubuntu-20.04
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-      - run: npm test
+  # test:
+  #   needs: install_dependencies
+  #   runs-on: ubuntu-20.04
+  #     - uses: actions/checkout@v2
+  #     - uses: actions/setup-node@v2
+  #       with:
+  #         node-version: '14'
+  #     - run: npm test
