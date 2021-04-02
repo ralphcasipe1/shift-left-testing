@@ -8,7 +8,7 @@ on:
       - 'feature/*'
 
 jobs:
-  install_depedencies:
+  install_dependencies:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -25,4 +25,3 @@ jobs:
         with:
           node-version: '14'
       - run: npm test
-
