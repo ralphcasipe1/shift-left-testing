@@ -8,6 +8,7 @@
   "license": "ISC",
   "scripts": {
     "test": "mocha",
+    "coverage": "nyc npm run test",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prepare": "husky install"
@@ -22,6 +23,7 @@
     "husky": "^6.0.0",
     "lint-staged": "^10.5.4",
     "mocha": "^8.3.2",
+    "nyc": "^15.1.0",
     "prettier": "^2.2.1"
   }
 }
