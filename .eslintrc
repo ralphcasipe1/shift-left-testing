@@ -1,7 +1,9 @@
 {
+  "plugins": ["prettier"],
   "extends": [
     "airbnb-base",
-    "eslint:recommended"
+    "eslint:recommended",
+    "plugin:prettier/recommended"
   ],
   "env": {
     "node": true,

@@ -21,7 +21,7 @@ jobs:
           key: dependencies-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependencies
         run: npm install
-  
+
   lint:
     needs: install_dependencies
     runs-on: ubuntu-20.04
