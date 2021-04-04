@@ -94,7 +94,8 @@ Make sure to ignore `node_modules`, By creating `.gitignore` inside the root of 
 
 Write `node_modules` inside `.gitignore`, For example:
 
-```.gitignore
+`.gitignore`
+```git
 node_modules
 ```
 
@@ -102,26 +103,38 @@ Run the `git status` again. You would see the `node_modules` is ignored.
 
 We have to commit all our changes first as an **initial commit**.
 
+`Code 1.6`
 ```
 git add .
 ```
+> `Code 1.6`: Add all files that are excluded from `.gitignore` to staging (files for commit)
 
+`Code 1.7`
 ```
 git commit -m "initial commit"
 ```
+> `Code 1.7`: Add message to the files that are in staging. In our case we commit it all and labeled it as our first commit to our project.
 
+`Code 1.8`
 ```
 git branch -M main
 ```
+> `Code 1.8`: Our current branch is named, `master`. With this command we will change our branch name to `main`.
 
 Now you're ready to add the initial implementation on your GitHub.
 
+`Code 1.9`
 ```bash
-git remote add origin https://github.com/<username>/shift-left-testing.git
+git remote add origin https://github.com/<your-username>/shift-left-testing.git
 ```
+> `Code 1.9`: We will link our changes to a remote server, a cloud-based one, which in our case, it's **GITHUB**.
 
+> `Code 1.10`
 ```
 git push -u origin main
 ```
+> `Code 1.10`: We will push our changes to the link we specified earlier.
+
+# 🎊🎉🎉 CHEERS ‼️‼️
 
 GO TO [First step to Github Actions](https://github.com/ralphcasipe1/shift-left-testing/blob/main/docs/INITIAL_GITHUB_ACTIONS.md)
