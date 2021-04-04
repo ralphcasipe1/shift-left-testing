@@ -12,9 +12,6 @@
 - Creating Acceptance Criteria
 
 
-
-
-
 ## Evaluating business requirements
 
 
