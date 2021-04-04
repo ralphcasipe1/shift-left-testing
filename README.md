@@ -7,7 +7,7 @@
 - [Linting](https://github.com/ralphcasipe1/shift-left-testing/blob/main/docs/LINTING.md)
 - [Prettify](https://github.com/ralphcasipe1/shift-left-testing/blob/main/docs/PRETTIFY.md)
 - [Property-based testing](https://github.com/ralphcasipe1/shift-left-testing/blob/main/docs/PROPERTY_BASED_TESTING.md)
-- [CODE COVERAGE](https://github.com/ralphcasipe1/shift-left-testing/blob/main/docs/CODE_COVERAGE.md)
+- [Code Coverage](https://github.com/ralphcasipe1/shift-left-testing/blob/main/docs/CODE_COVERAGE.md)
 - [Mutation Testing](https://github.com/ralphcasipe1/shift-left-testing/blob/main/docs/MUTATION_TESTING.md)
 - [Increase Reponsiveness with Slack and Github Actions](https://github.com/ralphcasipe1/shift-left-testing/blob/main/docs/SLACK_ACTIONS.md)
 - [Creating Acceptance Criteria](https://github.com/ralphcasipe1/shift-left-testing/blob/main/docs/ACCEPTANCE_CRITERIA.md)
