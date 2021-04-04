@@ -1,8 +1,8 @@
 # Shift-Left testing
 
 ## Table of Contents
-- Introduction
-- Initial Setup
+- [Introduction](https://github.com/ralphcasipe1/shift-left-testing/blob/main/docs/INTRODUCTION.md)
+- [Initial Setup]
 - First step to Github Actions
 - Linting
 - Prettify
@@ -10,9 +10,6 @@
 - Mutation Testing
 - Reponsiveness via Slack and Github Actions
 - Creating Acceptance Criteria
-
-
-## Evaluating business requirements
 
 
 ## Tools used
