@@ -119,7 +119,7 @@ jobs:
               }]
             }
         env:
-          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
+          SLACK_WEBHOOK_URL: {{ YOUR SLACK WEBHOOK }}
         if: always()
   
   test_coverage:
@@ -150,7 +150,7 @@ jobs:
               }]
             }
         env:
-          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
+          SLACK_WEBHOOK_URL: {{ YOUR SLACK WEBHOOK }}
         if: always()
 ```
 
