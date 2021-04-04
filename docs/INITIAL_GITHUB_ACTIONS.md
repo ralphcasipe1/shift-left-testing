@@ -6,15 +6,14 @@ Create a folder, `.github/workflows` inside your root project.
 
 Create a file and name it as `action.yml`.
 
+`Code 2.1`
 ```yml
 name: 'Shift-Left Testing'
 
-on:
-  pull_request:
-  push:
-    branches:
-      - main
-      - 'feature/*'
+on: [push, pull_request]
+  branches:
+    - main
+    - 'feature/*'
 
 jobs:
   install_dependencies:
@@ -46,6 +45,7 @@ jobs:
       - name: Run tests
         run: npm test
 ```
+> `Code 2.1` This would be our initial setup for github actions
 
 Commit this file
 
@@ -54,7 +54,7 @@ git add .github/workflows/action.yml
 ```
 
 ```bash
-git commit -m "feat(ci): add workflow github actions"
+git commit -m "feat(ci): <your-message>"
 ```
 
 GO TO [Linting](https://github.com/ralphcasipe1/shift-left-testing/blob/main/docs/LINTING.md)
