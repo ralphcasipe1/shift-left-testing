@@ -45,15 +45,15 @@ The advantage of grouping the files including the test inside a directory via do
 
 ## Initial commit
 
-For now, let try committing our code using `git`.
+For now, let's try committing our code using `git`.
 
 Follow the instructions:
 
+`Code 1.1`
 ```bash
 git init
 ```
-
-This would initialize that this project can be use with `git`.
+`Code 1.1`: This would initialize that this project can be use with `git`.
 
 ```bash
 git status
