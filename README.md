@@ -15,12 +15,12 @@
 
 ## Tools used
 
-- mocha
-- chai
-- huskyrc
-- lint-staged
-- eslint
-- nyc
-- stryker
-- fast-check
+- `mocha`
+- `chai`
+- `huskyrc`
+- `lint-staged`
+- `eslint`
+- `nyc`
+- `stryker`
+- `fast-check`
 - Github Actions
