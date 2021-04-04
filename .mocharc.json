@@ -1,3 +1,5 @@
 {
-  "spec": "src/**/*.test.js"
+  "spec": ["src/**/*.test.js", "tests/**/*.test.js"],
+  "exit": true,
+  "recursive": true
 }
