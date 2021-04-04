@@ -49,6 +49,8 @@ jobs:
         with:
           path: node_modules
           key: dependencies-${{ hashFiles('**/package-lock.json') }} 
+      - name: 'Docker compose up'
+        run: docker-compose up -d
       - name: Run tests
         run: npm test
       - uses: 8398a7/action-slack@v3
