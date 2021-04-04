@@ -74,6 +74,6 @@ This tutorial will later on update to cater tester's perspective.
 
 Don't follow this tutorial precisely, this tutorial's scope is to allow our feet get wet, and feel how could we adopt shift-left testing to our organization or project.
 
-For those who are reading this, I assume you have a basic knowledge in NodeJS and Git. I will try my best to make this for absolute beginners also.
+For those who are reading this, I assume you have a basic knowledge in NodeJS and Git. But still, I will try my best to make this understandable for absolute beginners also.
 
 GO TO [Initial Setup](https://github.com/ralphcasipe1/shift-left-testing/blob/main/docs/INITIALIZING_SETUP.md)
