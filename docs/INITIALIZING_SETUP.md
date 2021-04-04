@@ -92,3 +92,5 @@ git remote add origin https://github.com/<username>/shift-left-testing.git
 ```
 git push -u origin main
 ```
+
+GO TO [First step to Github Actions](https://github.com/ralphcasipe1/shift-left-testing/blob/main/docs/INITIAL_GITHUB_ACTIONS.md)

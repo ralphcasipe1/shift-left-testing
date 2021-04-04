@@ -153,3 +153,5 @@ jobs:
           SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
         if: always()
 ```
+
+GO TO [Creating Acceptance Criteria](https://github.com/ralphcasipe1/shift-left-testing/blob/main/docs/ACCEPTANCE_CRITERIA.md)

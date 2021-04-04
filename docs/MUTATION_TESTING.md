@@ -117,3 +117,5 @@ jobs:
       - name: Run Mutation Testing
         run: npx stryker run
 ```
+
+GO TO [Increase Reponsiveness with Slack and Github Actions](https://github.com/ralphcasipe1/shift-left-testing/blob/main/docs/SLACK_ACTIONS.md)

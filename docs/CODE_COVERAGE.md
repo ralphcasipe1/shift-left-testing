@@ -127,3 +127,5 @@ jobs:
       - name: Run tests
         run: npm run coverage
 ```
+
+GO TO [Mutation Testing](https://github.com/ralphcasipe1/shift-left-testing/blob/main/docs/MUTATION_TESTING.md)

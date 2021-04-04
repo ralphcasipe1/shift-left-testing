@@ -56,3 +56,5 @@ git add .github/workflows/action.yml
 ```bash
 git commit -m "feat(ci): add workflow github actions"
 ```
+
+GO TO [Linting](https://github.com/ralphcasipe1/shift-left-testing/blob/main/docs/LINTING.md)

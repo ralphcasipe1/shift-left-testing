@@ -134,3 +134,5 @@ The look of your actions would be like this:
 ```
 [install_dependencies] ---> [lint] ---> [test]
 ```
+
+GO TO [Prettify](https://github.com/ralphcasipe1/shift-left-testing/blob/main/docs/PRETTIFY.md)

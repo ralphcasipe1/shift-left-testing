@@ -150,3 +150,5 @@ describe('subtract', () => {
 Now commit the newly added files. It will prettify and lint at the same time on the file. There's no need for you to run `npm run lint:fix`.
 
 There is also another way. Some text editors support lint fixing on save, esp. VSCode or Vim. However, we will not cover those.
+
+GO TO [Property-based testing](https://github.com/ralphcasipe1/shift-left-testing/blob/main/docs/PROPERTY_BASED_TESTING.md)

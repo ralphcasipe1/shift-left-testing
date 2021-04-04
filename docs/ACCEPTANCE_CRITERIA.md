@@ -121,3 +121,8 @@ describe('User endpoints', function () {
   });
 });
 ```
+
+### Async/Await Functions
+![async-represenation](../assets/async-await.jpg)
+
+## THE END
