@@ -88,7 +88,7 @@ git init
 ```bash
 git status
 ```
-> `Code 1.4`: This would show all the files affected in your project.
+> `Code 1.5`: This would show all the files affected in your project.
 
 Make sure to ignore `node_modules`, By creating `.gitignore` inside the root of the project folder.
 
