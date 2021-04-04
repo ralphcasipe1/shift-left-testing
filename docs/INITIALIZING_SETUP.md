@@ -14,9 +14,11 @@ It will generate a `package.json` inside the folder.
 
 ### Install tools for testing
 
+`Code 1.1`
 ```bash
 npm i -D mocha chai
 ```
+> `Code 1.1`: Installs `mocha` and `chai` for testing
 
 These tools would help us start testing things we wanted to created.
 
@@ -44,6 +46,7 @@ This way we could group all the related stuff and glue them together to reduce m
 The advantage of grouping the files including the test inside a directory via domains would be prevalent and impactful as we go further.
 
 `add.test.js`
+`Code 1.2`
 ```js
 const { expect } = require('chai');
 
@@ -57,6 +60,7 @@ describe('add', () => {
 ```
 
 `subtract.test.js`
+`Code 1.3`
 ```js
 describe('subtract', () => {
   it('should have the correct difference', () => {
@@ -74,15 +78,17 @@ For now, let's try committing our code using `git`.
 
 Follow the instructions:
 
-`Code 1.1`
+`Code 1.4`
 ```bash
 git init
 ```
-`Code 1.1`: This would initialize that this project can be use with `git`.
+> `Code 1.4`: This would initialize that this project can be use with `git`.
 
+`Code 1.5`
 ```bash
 git status
 ```
+> `Code 1.4`: This would show all the files affected in your project.
 
 Make sure to ignore `node_modules`, By creating `.gitignore` inside the root of the project folder.
 
