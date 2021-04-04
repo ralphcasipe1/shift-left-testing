@@ -80,6 +80,8 @@ jobs:
         with:
           path: node_modules
           key: dependencies-${{ hashFiles('**/package-lock.json') }}
+      - name: 'Docker compose up'
+        run: docker-compose up -d
       - name: Run Test Coverage
         run: npm run coverage
       - name: Run Mutation Testing
