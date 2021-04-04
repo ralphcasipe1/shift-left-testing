@@ -122,7 +122,128 @@ describe('User endpoints', function () {
 });
 ```
 
+`infrastructure/mongoose-connection.js`
+```js
+const mongoose = require('mongoose');
+
+async function connect() {
+  return mongoose.connect('mongodb://localhost/dead-simple', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
+}
+
+module.exports = {
+  connect,
+};
+```
+
+`src/app.js`
+```js
+const Koa = require('koa');
+const Router = require('koa-router');
+const R = require('ramda');
+const bodyParser = require('koa-bodyparser');
+const { customAlphabet } = require('nanoid');
+const { Schema, model } = require('mongoose');
+
+const mongooseConnection = require('./infrastructure/mongoose-connection');
+
+const app = new Koa();
+const router = new Router();
+
+app.use(bodyParser());
+
+(async () => mongooseConnection.connect())();
+
+const UserModel = model(
+  'user',
+  new Schema({
+    _id: {
+      type: String,
+      required: true,
+    },
+    username: {
+      type: String,
+      required: true,
+    },
+    firstName: {
+      type: String,
+      default: null,
+    },
+    lastName: {
+      type: String,
+      default: null,
+    },
+  }),
+);
+
+const nanoid = customAlphabet('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ', 10);
+
+router.get('/users', async (ctx) => {
+  ctx.body = {
+    users: await UserModel.find({}, { __v: 0 }).lean(),
+  };
+});
+
+router.post('/users', async (ctx) => {
+  try {
+    /* if (!ctx.request.body.username) {
+      throw new Error('Username is not supplied!');
+    }
+
+    if (ctx.request.body.firstName && !ctx.request.body.lastName) {
+      throw new Error('Last name should be supplied when the first name is!');
+    }
+
+    if (!ctx.request.body.firstName && ctx.request.body.lastName) {
+      throw new Error('First name should be supplied when the last name is!');
+    } */
+
+    const user = await UserModel.create({
+      ...ctx.request.body,
+      _id: nanoid(),
+    });
+
+    ctx.body = {
+      user: R.pick(['username', 'firstName', 'lastName', '_id'])(user),
+    };
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+});
+
+app.use(async (ctx, next) => {
+  try {
+    await next();
+  } catch (error) {
+    ctx.body = {
+      message: error.message,
+    };
+  }
+});
+
+app.use(router.routes());
+
+module.exports = app;
+```
+> Try to one by one uncomment the conditional statement (`if (..) { ... }`). To pass the skipped tests. This will help you appreciate more when designing the test first base on business requirements and apply your logical implementation while doing tweaks to your tests at the same time.
+
+`index.js`
+```js
+const app = require('./app');
+
+const server = app.listen(3001, () => {
+  console.log('Listening to 3001.');
+});
+
+module.exports = server;
+```
+
 ### Async/Await Functions
+This is a simple representation of async/await functions.
+
 ![async-represenation](../assets/async-await.jpg)
 
 ## THE END
