@@ -56,7 +56,7 @@ Shifting-Right testing strategy is viable when you:
 
 
 ## Tutorial
-I would like to have a short on Shift-Left Testing for the developer's perspective
+I would like to have a short tutorial on Shift-Left Testing for the developer's perspective
 
 These tutorial will not discuss about architecture and security.
 
