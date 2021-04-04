@@ -14,65 +14,77 @@ describe('User endpoints', function () {
   });
 
   describe('POST /users', function () {
-    it('should create', async function () {
-      this.response = await this.request().post('/users').type('json').send({
-        username: 'test',
+    describe('GIVEN only the username', function () {
+      it('should create', async function () {
+        this.response = await this.request().post('/users').type('json').send({
+          username: 'test',
+        });
+
+        expect(this.response.status).to.equal(200);
+
+        expect(this.response.body).to.have.a.property('user');
+
+        expect(this.response.body.user._id).to.match(/[0-9A-Z]{10}/);
+
+        expect(this.response.body.user.username).to.equals('test');
       });
-
-      expect(this.response.status).to.equal(200);
-
-      expect(this.response.body).to.have.a.property('user');
-
-      expect(this.response.body.user._id).to.match(/[0-9A-Z]{10}/);
-
-      expect(this.response.body.user.username).to.equals('test');
     });
 
-    it('should create', async function () {
-      this.response = await this.request().post('/users').type('json').send({
-        username: 'test',
-        firstName: 'test',
-        lastName: 'test',
+    describe('GIVEN the username, firstName and lastName', function () {
+      it('should create', async function () {
+        this.response = await this.request().post('/users').type('json').send({
+          username: 'test',
+          firstName: 'test',
+          lastName: 'test',
+        });
+
+        expect(this.response.status).to.equal(200);
+
+        expect(this.response.body).to.have.a.property('user');
+
+        expect(this.response.body.user._id).to.match(/[0-9A-Z]{10}/);
+
+        expect(this.response.body.user.username).to.equals('test');
       });
-
-      expect(this.response.status).to.equal(200);
-
-      expect(this.response.body).to.have.a.property('user');
-
-      expect(this.response.body.user._id).to.match(/[0-9A-Z]{10}/);
-
-      expect(this.response.body.user.username).to.equals('test');
     });
 
-    it('should not create', async function () {
-      this.response = await this.request().post('/users').type('json').send({
-        firstName: 'test',
-        lastName: 'test',
-      });
+    describe('GIVEN no username, only firstName and lastName', function () {
+      it('should not create', async function () {
+        this.response = await this.request().post('/users').type('json').send({
+          firstName: 'test',
+          lastName: 'test',
+        });
 
-      expect(this.response.body.message).to.equals('Username is not supplied!');
+        expect(this.response.body.message).to.equals(
+          'Username is not supplied!',
+        );
+      });
     });
 
-    it('should not create', async function () {
-      this.response = await this.request().post('/users').type('json').send({
-        username: 'test',
-        firstName: 'test',
-      });
+    describe('GIVEN only username and first name', function () {
+      it('should not create', async function () {
+        this.response = await this.request().post('/users').type('json').send({
+          username: 'test',
+          firstName: 'test',
+        });
 
-      expect(this.response.body.message).to.equals(
-        'Last name should be supplied when the first name is!',
-      );
+        expect(this.response.body.message).to.equals(
+          'Last name should be supplied when the first name is!',
+        );
+      });
     });
 
-    it('should not create', async function () {
-      this.response = await this.request().post('/users').type('json').send({
-        username: 'test',
-        lastName: 'test',
-      });
+    describe('GIVEN only username and last name', function () {
+      it('should not create', async function () {
+        this.response = await this.request().post('/users').type('json').send({
+          username: 'test',
+          lastName: 'test',
+        });
 
-      expect(this.response.body.message).to.equals(
-        'First name should be supplied when the last name is!',
-      );
+        expect(this.response.body.message).to.equals(
+          'First name should be supplied when the last name is!',
+        );
+      });
     });
   });
 
