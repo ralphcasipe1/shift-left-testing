@@ -43,6 +43,31 @@ This way we could group all the related stuff and glue them together to reduce m
 
 The advantage of grouping the files including the test inside a directory via domains would be prevalent and impactful as we go further.
 
+`add.test.js`
+```js
+const { expect } = require('chai');
+
+const add = require('./add');
+
+describe('add', () => {
+  it('should have the correct sum', () => {
+    expect(add(2, 2)).to.equals(4);
+  });
+});
+```
+
+`subtract.test.js`
+```js
+describe('subtract', () => {
+  it('should have the correct difference', () => {
+    expect(subtract(2, 1)).to.equals(1);
+  });
+});
+```
+
+try to pass these tests, add your code in `add.js` and `subtract.js`, respectively.
+
+
 ## Initial commit
 
 For now, let's try committing our code using `git`.
