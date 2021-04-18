@@ -93,7 +93,7 @@ jobs:
             :wave: Hi @${{ github.actor }}, please monitor your deployment for at least *10 minutes*.
 
 
-            > :exclamation: *TAKE NOTE:* If there are problems use the [Deployment Procedure](http://www.test.com)
+            > :exclamation: *TAKE NOTE:* If there are problems use the Deployment Procedure
 
             
             :mag: Things you need to check:
