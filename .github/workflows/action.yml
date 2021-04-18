@@ -1,6 +1,6 @@
 name: 'Shift-Left Testing'
 
-on: [ push ]  
+on: [push]  
   branches: [ main, 'feature/*' ]
 
 jobs:
