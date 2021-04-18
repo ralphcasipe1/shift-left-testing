@@ -121,7 +121,7 @@ jobs:
             :tada: SUCCESSFUL DEPLOYMENT!
           SLACK_MESSAGE: |
             
-            E-prescription is now running ${{ SHORT_COMMIT_ID }}.
+            E-prescription is now running ${{ steps.vars.outputs.SHORT_COMMIT_ID }}.
 
 
             @{{ github.actor }}, remember to test your feature and monitor for issues.
