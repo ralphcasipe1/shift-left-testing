@@ -1,7 +1,8 @@
 name: 'Shift-Left Testing'
 
-on: [push]  
-  branches: [ main, 'feature/*' ]
+on: 
+  push:
+    branches: [ main, 'feature/*' ]
 
 jobs:
   install_dependencies:
