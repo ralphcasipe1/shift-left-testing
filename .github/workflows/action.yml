@@ -39,7 +39,7 @@ jobs:
     needs: lint
     runs-on: ubuntu-20.04
     env:
-      SLACK_WEBHOOK_URL: ${{ secret.SLACK_WEBHOOK_URL }}
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
