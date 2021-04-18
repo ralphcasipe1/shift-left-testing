@@ -51,16 +51,17 @@ jobs:
         run: docker-compose up -d
       - name: Run tests
         run: npm test
+      - name: Variables
+        run: echo "::set-output name=SHORT_COMMIT_ID::$(git rev-parse --short HEAD)"
       - name: 'Slack Notification'
         uses: rtCamp/action-slack-notify@v2
         env:
-          # SLACK_CHANNEL: e_prescription
           SLACK_COLOR: ${{ job.status }}
-          # SLACK_ICON: ${{ github.repository }}/assets/combat-calligrapher.jpg?size=48
+          SLACK_ICON_EMOJI: :panda_face:
           SLACK_TITLE: |
-            :wrench: Deploying echo $(git rev-parse --short HEAD) by ${{ github.actor }}
+            :wrench: Deploying echo ${{ SHORT_COMMIT_ID }} by ${{ github.actor }}
           SLACK_MESSAGE: |
-            :wave: Hi ${{ github.actor }}, please monitor your deployment for at least 10 minutes
+            :wave: Hi ${{ github.actor }}, please monitor your deployment for at least *10 minutes*.
 
 
             :exclamation: *TAKE NOTE* If there are problems use the Deployment Procedure
@@ -70,9 +71,9 @@ jobs:
 
 
             1. If you deployed a new feature, test it that it work as expected.
-            2. Watch for alerts in this channel, #service-errors
-            3. Check our E-Prescription War Room for issues like elevated erros, fewer checkouts, or slow performance
-
+            2. Watch for alerts in this channel, `#service-errors`.
+            3. Check our E-Prescription War Room for issues like *elevated errors*, *fewer checkouts*, or *slow performance*.
+          SLACK_USERNAME: Notifier
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
         if: always()
   
