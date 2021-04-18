@@ -38,8 +38,6 @@ jobs:
   test:
     needs: lint
     runs-on: ubuntu-20.04
-    env:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -53,7 +51,11 @@ jobs:
         run: docker-compose up -d
       - name: Run tests
         run: npm test
-      - uses: act10ns/slack@v1
+      - name: 'Slack Notification'
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_ICON: ${{ github.repository }}/assets/combat-calligrapher.jpg?size=48
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
         with:
           status: ${{ job.status }}
           channel: '#e-prescription'
