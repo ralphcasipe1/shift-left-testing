@@ -51,10 +51,36 @@ jobs:
         run: docker-compose up -d
       - name: Run tests
         run: npm test
+  
+  test_coverage:
+    needs: lint
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - uses: actions/cache@v2.1.4
+        with:
+          path: node_modules
+          key: dependencies-${{ hashFiles('**/package-lock.json') }}
+      - name: 'Docker compose up'
+        run: docker-compose up -d
+      - name: Run Test Coverage
+        run: npm run coverage
+      - name: Run Mutation Testing
+        run: npx stryker run
+
+  notify:
+    needs:
+      - test
+      - test_coverage
+    runs-on: ubuntu-20.04
+    steps:
       - name: Variables
         id: vars
         run: echo "::set-output name=SHORT_COMMIT_ID::$(git rev-parse --short HEAD)"
-      - name: 'Slack Notification'
+      - name: 'Notify'
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_COLOR: ${{ job.status }}
@@ -77,37 +103,28 @@ jobs:
             3. Check our E-Prescription War Room for issues like *elevated errors*, *fewer checkouts*, or *slow performance*.
           SLACK_USERNAME: Notifier
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
-        if: starting
-  
-  test_coverage:
-    needs: lint
+
+  deploy:
+    needs:
+      - notify
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-      - uses: actions/cache@v2.1.4
-        with:
-          path: node_modules
-          key: dependencies-${{ hashFiles('**/package-lock.json') }}
-      - name: 'Docker compose up'
-        run: docker-compose up -d
-      - name: Run Test Coverage
-        run: npm run coverage
-      - name: Run Mutation Testing
-        run: npx stryker run
-      # - uses: 8398a7/action-slack@v3
-      #   with:
-      #     status: custom
-      #     fields: workflow,job,commit,repo,ref,author,took
-      #     custom_payload: |
-      #       {
-      #         attachments: [{
-      #           color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-      #           text: `${process.env.AS_WORKFLOW}\n${process.env.AS_JOB} (${process.env.AS_COMMIT}) of ${process.env.AS_REPO}@${process.env.AS_REF} by ${process.env.AS_AUTHOR} ${{ job.status }} in ${process.env.AS_TOOK}`,
-      #         }]
-      #       }
-      #   env:
-      #     SLACK_WEBHOOK_URL: ${{ secret.SLACK_WEBHOOK_URL }}
-      #   if: always()
+      - name: Variables
+        id: vars
+        run: echo "::set-output name=SHORT_COMMIT_ID::$(git rev-parse --short HEAD)"
+      - name: 'DEPLOY'
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_ICON_EMOJI: ":panda_face:"
+          SLACK_TITLE: |
+            :tada: SUCCESSFUL DEPLOYMENT!
+          SLACK_MESSAGE: |
+            
+            E-prescription is now running ${{ SHORT_COMMIT_ID }}.
+
+
+            @{{ github.actor }}, remember to test your feature and monitor for issues.
+
+          SLACK_USERNAME: Deployer
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
