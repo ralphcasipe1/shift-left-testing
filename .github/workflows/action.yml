@@ -102,8 +102,11 @@ jobs:
             1. If you deployed a new feature, test it that it work as expected.
             2. Watch for alerts in this channel, `#service-errors`.
             3. Check our E-Prescription War Room for issues like *elevated errors*, *fewer checkouts*, or *slow performance*.
+          SLACK_FOOTER: |
+            Your daily dose of support
           SLACK_USERNAME: Notifier
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+          
 
   deploy:
     needs:
@@ -127,6 +130,7 @@ jobs:
 
 
             @${{ github.actor }}, remember to test your feature and monitor for issues.
-
+          SLACK_FOOTER: |
+            Your daily dose of support
           SLACK_USERNAME: Deployer
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
