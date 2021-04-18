@@ -116,7 +116,7 @@ jobs:
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_COLOR: ${{ job.status }}
-          SLACK_ICON_EMOJI: ":panda_face:"
+          SLACK_ICON_EMOJI: ":female_technologist:"
           SLACK_TITLE: |
             :tada: SUCCESSFUL DEPLOYMENT!
           SLACK_MESSAGE: |
@@ -124,7 +124,7 @@ jobs:
             E-prescription is now running ${{ steps.vars.outputs.SHORT_COMMIT_ID }}.
 
 
-            @{{ github.actor }}, remember to test your feature and monitor for issues.
+            @${{ github.actor }}, remember to test your feature and monitor for issues.
 
           SLACK_USERNAME: Deployer
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
