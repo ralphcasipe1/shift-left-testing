@@ -71,10 +71,6 @@ jobs:
             3. Check our E-Prescription War Room for issues like elevated erros, fewer checkouts, or slow performance
 
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
-        with:
-          status: ${{ job.status }}
-          channel: '#e-prescription'
-          fields: workflow,job,commit,repo,ref,author,took
         if: always()
   
   test_coverage:
