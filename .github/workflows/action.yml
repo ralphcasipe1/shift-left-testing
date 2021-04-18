@@ -57,7 +57,7 @@ jobs:
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_COLOR: ${{ job.status }}
-          SLACK_ICON_EMOJI: :panda_face:
+          SLACK_ICON_EMOJI: ":panda_face:"
           SLACK_TITLE: |
             :wrench: Deploying echo ${{ SHORT_COMMIT_ID }} by ${{ github.actor }}
           SLACK_MESSAGE: |
