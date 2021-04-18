@@ -93,7 +93,7 @@ jobs:
             :wave: Hi ${{ github.actor }}, please monitor your deployment for at least *10 minutes*.
 
 
-            :exclamation: *TAKE NOTE* If there are problems use the Deployment Procedure
+            > :exclamation: *TAKE NOTE:* If there are problems use the Deployment Procedure
 
             
             :mag: Things you need to check:
@@ -103,7 +103,7 @@ jobs:
             2. Watch for alerts in this channel, `#service-errors`.
             3. Check our E-Prescription War Room for issues like *elevated errors*, *fewer checkouts*, or *slow performance*.
           SLACK_FOOTER: |
-            Your daily dose of support
+            Your daily dose of support :two_hearts:
           SLACK_USERNAME: Notifier
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
           
@@ -126,11 +126,11 @@ jobs:
             :tada: SUCCESSFUL DEPLOYMENT!
           SLACK_MESSAGE: |
             
-            E-prescription is now running ${{ steps.vars.outputs.SHORT_COMMIT_ID }}.
+            E-prescription is now running `${{ steps.vars.outputs.SHORT_COMMIT_ID }}`.
 
 
             @${{ github.actor }}, remember to test your feature and monitor for issues.
           SLACK_FOOTER: |
-            Your daily dose of support
+            Your daily dose of support :two_hearts:
           SLACK_USERNAME: Deployer
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
