@@ -60,8 +60,9 @@ jobs:
           SLACK_COLOR: ${{ job.status }}
           SLACK_ICON_EMOJI: ":panda_face:"
           SLACK_TITLE: |
-            :wrench: Deploying echo ${{ steps.vars.outputs.SHORT_COMMIT_ID }} by ${{ github.actor }}
+            :wrench: Deploying `${{ steps.vars.outputs.SHORT_COMMIT_ID }}` by @${{ github.actor }}
           SLACK_MESSAGE: |
+            
             :wave: Hi ${{ github.actor }}, please monitor your deployment for at least *10 minutes*.
 
 
@@ -76,7 +77,7 @@ jobs:
             3. Check our E-Prescription War Room for issues like *elevated errors*, *fewer checkouts*, or *slow performance*.
           SLACK_USERNAME: Notifier
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
-        if: always()
+        if: ${{ starting() }}
   
   test_coverage:
     needs: lint
