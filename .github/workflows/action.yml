@@ -2,7 +2,8 @@ name: 'Shift-Left Testing'
 
 on: 
   push:
-    branches: [ main, 'feature/*' ]
+    branches: 
+      - main
 
 jobs:
   install_dependencies:
@@ -56,6 +57,7 @@ jobs:
         with:
           status: ${{ job.status }}
           channel: '#e-prescription'
+          fields: workflow,job,commit,repo,ref,author,took
         if: always()
   
   test_coverage:
