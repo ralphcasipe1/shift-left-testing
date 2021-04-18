@@ -38,6 +38,8 @@ jobs:
   test:
     needs: lint
     runs-on: ubuntu-20.04
+    env:
+      IMAGE_NAME: ${{ github.repository }}/assets/combat-calligrapher.jpg
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
