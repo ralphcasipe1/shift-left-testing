@@ -90,7 +90,7 @@ jobs:
             :wrench: Deploying `${{ steps.vars.outputs.SHORT_COMMIT_ID }}` by @${{ github.actor }}
           SLACK_MESSAGE: |
             
-            :wave: Hi ${{ github.actor }}, please monitor your deployment for at least *10 minutes*.
+            :wave: Hi @${{ github.actor }}, please monitor your deployment for at least *10 minutes*.
 
 
             > :exclamation: *TAKE NOTE:* If there are problems use the [Deployment Procedure](http://www.test.com)
