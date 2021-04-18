@@ -54,7 +54,7 @@ jobs:
       - name: 'Slack Notification'
         uses: rtCamp/action-slack-notify@v2
         env:
-          SLACK_CHANNEL: e_prescription
+          # SLACK_CHANNEL: e_prescription
           SLACK_COLOR: ${{ job.status }}
           # SLACK_ICON: ${{ github.repository }}/assets/combat-calligrapher.jpg?size=48
           SLACK_MESSAGE: |
