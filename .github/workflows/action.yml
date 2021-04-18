@@ -38,6 +38,8 @@ jobs:
   test:
     needs: lint
     runs-on: ubuntu-20.04
+    env:
+      SLACK_WEBHOOK_URL: ${{ secret.SLACK_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -51,19 +53,9 @@ jobs:
         run: docker-compose up -d
       - name: Run tests
         run: npm test
-      - uses: 8398a7/action-slack@v3
-        with:
-          status: custom
-          fields: workflow,job,commit,repo,ref,author,took
-          custom_payload: |
-            {
-              attachments: [{
-                color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-                text: `${process.env.AS_WORKFLOW}\n${process.env.AS_JOB} (${process.env.AS_COMMIT}) of ${process.env.AS_REPO}@${process.env.AS_REF} by ${process.env.AS_AUTHOR} ${{ job.status }} in ${process.env.AS_TOOK}`,
-              }]
-            }
-        env:
-          SLACK_WEBHOOK_URL: ${{ secret.SLACK_WEBHOOK_URL }}
+      - uses: act10ns/slack@v1
+          status: ${{ job.status }}
+          channel: '#e-prescription'
         if: always()
   
   test_coverage:
@@ -84,17 +76,17 @@ jobs:
         run: npm run coverage
       - name: Run Mutation Testing
         run: npx stryker run
-      - uses: 8398a7/action-slack@v3
-        with:
-          status: custom
-          fields: workflow,job,commit,repo,ref,author,took
-          custom_payload: |
-            {
-              attachments: [{
-                color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-                text: `${process.env.AS_WORKFLOW}\n${process.env.AS_JOB} (${process.env.AS_COMMIT}) of ${process.env.AS_REPO}@${process.env.AS_REF} by ${process.env.AS_AUTHOR} ${{ job.status }} in ${process.env.AS_TOOK}`,
-              }]
-            }
-        env:
-          SLACK_WEBHOOK_URL: ${{ secret.SLACK_WEBHOOK_URL }}
-        if: always()
+      # - uses: 8398a7/action-slack@v3
+      #   with:
+      #     status: custom
+      #     fields: workflow,job,commit,repo,ref,author,took
+      #     custom_payload: |
+      #       {
+      #         attachments: [{
+      #           color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
+      #           text: `${process.env.AS_WORKFLOW}\n${process.env.AS_JOB} (${process.env.AS_COMMIT}) of ${process.env.AS_REPO}@${process.env.AS_REF} by ${process.env.AS_AUTHOR} ${{ job.status }} in ${process.env.AS_TOOK}`,
+      #         }]
+      #       }
+      #   env:
+      #     SLACK_WEBHOOK_URL: ${{ secret.SLACK_WEBHOOK_URL }}
+      #   if: always()
