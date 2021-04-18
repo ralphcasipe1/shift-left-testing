@@ -56,7 +56,7 @@ jobs:
         env:
           SLACK_CHANNEL: e_prescription
           SLACK_COLOR: ${{ job.status }}
-          SLACK_ICON: ${{ GITHUB_WORKSPACE }}/assets/combat-calligrapher.jpg?size=48
+          # SLACK_ICON: ${{ github.repository }}/assets/combat-calligrapher.jpg?size=48
           SLACK_MESSAGE: |
             :wrench: Deploying echo $(git rev-parse --short HEAD) by ${{ github.actor }}
 
