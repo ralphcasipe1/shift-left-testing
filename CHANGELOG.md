@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/ralphcasipe1/shift-left-testing/compare/v1.1.1...v1.2.0) (2021-05-10)
+
+
+### Features
+
+* **user:** test jira issue ([a0cafe5](https://github.com/ralphcasipe1/shift-left-testing/commit/a0cafe5d3179f90dd1bd1edb49f02c2464c71094))
+
 ### [1.1.1](https://github.com/ralphcasipe1/shift-left-testing/compare/v1.1.0...v1.1.1) (2021-05-10)
 
 
