@@ -13,7 +13,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prepare": "husky install",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "release": "standard-version"
   },
   "devDependencies": {
     "@stryker-mutator/core": "^4.5.1",
@@ -34,7 +35,8 @@
     "mocha": "^8.3.2",
     "nodemon": "^2.0.7",
     "nyc": "^15.1.0",
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "standard-version": "^9.3.0"
   },
   "dependencies": {
     "koa": "^2.13.1",
