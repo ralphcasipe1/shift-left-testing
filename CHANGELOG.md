@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/ralphcasipe1/shift-left-testing/compare/v1.1.0...v1.1.1) (2021-05-10)
+
+
+### Bug Fixes
+
+* **user:** return 'Test' ([c26814c](https://github.com/ralphcasipe1/shift-left-testing/commit/c26814c20654030a81709403008992294e414986)), closes [#EU-123](https://github.com/ralphcasipe1/shift-left-testing/issues/EU-123)
+
 ## 1.1.0 (2021-05-10)
 
 
