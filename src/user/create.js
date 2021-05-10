@@ -1,5 +1,7 @@
 module.exports = {
   create() {
-    return 'create';
+    return {
+      firstName: 'Test',
+    };
   },
 };
